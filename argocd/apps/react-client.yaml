@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: react-client
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:MercurA/homelab-gitops.git
+    targetRevision: main
+    path: overlays/homelab-dev/react-client
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: homelab-dev
+  syncPolicy:
+    automated:
+      prune: true       # delete resources removed from Git
+      selfHeal: true    # revert manual cluster changes
+    syncOptions:
+      - CreateNamespace=true   # makes the homelab-dev namespace for you
