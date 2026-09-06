@@ -9,4 +9,4 @@ resources:
 images:
   - name: nginx
     newName: ghcr.io/mercura/react-client
-    newTag: "580b6c6f2790900a0dc7119b111207e269aa480b"
+    newTag: "169cf22bd07424f4bea2edcf12418f62b97acc13"
